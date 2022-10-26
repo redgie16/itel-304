@@ -142,7 +142,7 @@ def deleteemployee(empid):
 @app.route('/logout')
 def logout():
     session.pop('user', None)
-    render_template('home.html')
+    return render_template('home.html')
 
 if __name__ == '__main__':
     app.run(debug = True)
