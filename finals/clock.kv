@@ -1,0 +1,110 @@
+<Label>
+    markup: True
+    halign: "center"
+    font_size: 20
+
+<Widget>
+    font_name: "./assets/arial.ttf"
+
+<Button>
+    background_normal: ""
+    background_color: (0, 0, 0, 0)
+    font_size: 25
+
+<RoundedButton1@Button>
+    canvas.before:
+        Color:
+            rgba: (1, 0, 0, 1)
+        
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [15]
+
+<RoundedButton2@Button>
+    canvas.before:
+        Color:
+            rgba: (0, 0, 1, 1)
+        
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [15]
+
+<TabbedPanelItem>
+    background_color: "#3B3B3B"
+    font_size: 15 
+
+TabbedPanel:
+    do_default_tab: False
+    tab_width: (self.content.width - 5) / 3
+    padding: (5, 5)
+
+    TabbedPanelItem:
+        text: "Clock"
+
+        BoxLayout:
+            orientation: "vertical"
+
+            Label:
+                id: time
+                text: "00:00"
+                font_name: "./assets/arial.ttf"
+                font_size: 18
+                halign: "center"
+
+    TabbedPanelItem:
+        text: "Stopwatch"
+        
+        BoxLayout:
+            orientation: "vertical"
+
+            Label:
+                id: stopwatch
+                text: "00:00.00"
+                font_size: 60
+
+            BoxLayout:
+                orientation: "horizontal"   
+                height: 90
+                padding: 20
+                spacing: 20
+                size_hint: (1, None)
+
+                RoundedButton1:
+                    id: start_stop
+                    text: "Start"
+                    on_press: app.start_stop()
+
+                RoundedButton2:
+                    id: reset
+                    text: "Reset"
+                    on_press: app.reset()
+
+    TabbedPanelItem:
+        text: "World Clock"
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (1, 1)      
+
+            Label:
+                id: tz
+
+            Label:
+                id: tz1
+
+            Label:
+                id: tz2 
+
+            Label:
+                id: tz3 
+
+            Label:
+                id: tz4 
+
+            Label:
+                id: tz5     
+
+            Label:
+                id: tz6
