@@ -28,33 +28,33 @@ class ClockApp(App):
 
         self.root.ids.stopwatch.text = ("%02d:%02d.[size=40]%02d[/size]" % (int(m), int(s), int(s * 100 % 100)))
     
-        correct_time = strftime('[size=30]%H:%M:%S[/size]')
+        correct_time = strftime('[size=30]%I:%M %p[/size]')
         self.root.ids.tz.text = '[size=22]Manila[/size]'
         self.root.ids.tz1.text = correct_time
 
         home = pytz.timezone('Asia/Tokyo')
         local_time = datetime.now(home)
-        current_time = local_time.strftime('%H:%M:%S')
+        current_time = local_time.strftime('%I:%M %p')
         self.root.ids.tz2.text = 'Tokyo     ' + current_time
 
         home = pytz.timezone('Asia/Seoul')
         local_time = datetime.now(home)
-        current_time = local_time.strftime('%H:%M:%S')
+        current_time = local_time.strftime('%I:%M %p')
         self.root.ids.tz3.text = 'Seoul    ' + current_time
 
         home = pytz.timezone('Australia/Sydney')
         local_time = datetime.now(home)
-        current_time = local_time.strftime('%H:%M:%S')
+        current_time = local_time.strftime('%I:%M %p')
         self.root.ids.tz4.text = 'Sydney     ' + current_time
 
         home = pytz.timezone('America/New_York')
         local_time = datetime.now(home)
-        current_time = local_time.strftime('%H:%M:%S')
+        current_time = local_time.strftime('%I:%M %p')
         self.root.ids.tz5.text = 'New York     ' + current_time
 
         home = pytz.timezone('Europe/London')
         local_time = datetime.now(home)
-        current_time = local_time.strftime('%H:%M:%S')
+        current_time = local_time.strftime('%I:%M %p')
         self.root.ids.tz6.text = 'London     ' + current_time
 
     def start_stop(self):
